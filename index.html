@@ -4,25 +4,69 @@
 <meta charset="UTF-8">
 <title>Bien Vivre à Roquettes – Municipales 2026</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 /* ===== GLOBAL ===== */
 body {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: 'Jost', sans-serif;
   margin: 0;
   color: #222;
-  background: #f4f4f4;
   line-height: 1.6;
+  background-image: url('images/background.png');
 }
 
 a { color: #2c4a6e; text-decoration: none; }
 
-/* ===== MENU RESPONSIVE ===== */
-nav {
-  background: #2c4a6e;
+/* ===== TOP BAR (HEADER + MENU) STICKY ===== */
+.top-bar {
+  /* background-image: url('images/menu-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; */
+  background-color: white;
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.top-bar.shrink + .top-bar-spacer {
+  height: 120px;
+}
+
+/* ===== HEADER ===== */
+header {
+  text-align: center;
+  position: relative;
+  height: 140px;          /* hauteur initiale */
+  overflow: hidden;        /* empêche le logo de dépasser */
+}
+
+/* Logo responsive */
+header .logo-header {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: height 0.3s ease;
+}
+
+/* ===== MENU ===== */
+nav {
+  position: relative;
+  /* border-top: 4px solid #e64730;
+  border-bottom: 4px solid #e64730; */
+  background-image: url('images/background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; 
+  z-index: 1001;                /* au-dessus du header si nécessaire */
+}
+
+nav .nav-container {
+  position: relative;  /* pour que les liens soient au-dessus de l'overlay */
+  z-index: 2;
 }
 
 .nav-container {
@@ -79,43 +123,31 @@ nav a {
   }
 }
 
-/* ===== HEADER ===== */
-header {
-  background-image: url('images/logo.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  background-color: white;
-  text-align: center;
-  padding: 90px 15px;
-  border-bottom: 4px solid #2c4a6e;
-}
-
-header h1,
-header p {
-  background: rgba(255,255,255,0.85);
-  display: inline-block;
-  padding: 6px 18px;
-  border-radius: 6px;
-}
-
 /* ===== MAIN ===== */
 main {
   max-width: 900px;
-  margin: auto;
-  background: white;
+  margin: 0 auto;
   padding: 30px 20px;
+  background: none;
+  border-radius: 8px;
 }
 
+
+/* ===== SECTIONS ===== */
 section {
   margin-bottom: 50px;
   padding: 20px;
   border-radius: 8px;
 }
 
-section:nth-child(odd) {
-  background: #f9f9f9;
+section {
+  background: white;
+  margin-bottom: 50px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
+
 
 h2 {
   border-bottom: 2px solid #2c4a6e;
@@ -130,10 +162,10 @@ ul { padding-left: 20px; }
   margin-top: 15px;
 }
 
-/* ===== DOCUMENTS ===== */
+/* ===== DOCUMENTS (PDF MINIATURES) ===== */
 .documents-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 20px;
 }
 
@@ -145,28 +177,47 @@ ul { padding-left: 20px; }
   background: white;
 }
 
-.document-card img {
-  max-width: 100%;
-  margin-bottom: 10px;
+.document-card embed {
+  width: 100%;
+  height: 220px;
   border: 1px solid #ddd;
 }
 
 .document-card span {
+  display: block;
+  margin-top: 8px;
   font-weight: bold;
+}
+
+/* ===== VIDEOS ===== */
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.video-card video,
+.video-card iframe {
+  width: 100%;
+  border-radius: 6px;
 }
 
 /* ===== FOOTER ===== */
 footer {
   text-align: center;
-  padding: 20px;
-  background: white;
-  border-top: 4px solid #2c4a6e;
+  padding: 40px 20px;
+  background-image: url('images/menu-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
   font-size: 0.9em;
 }
 
 footer svg {
   margin: 0 8px;
   vertical-align: middle;
+  fill: white; /* icônes visibles sur background */
 }
 </style>
 
@@ -180,23 +231,28 @@ function toggleMenu() {
 
 <body>
 
-<!-- MENU -->
-<nav>
-  <div class="nav-container">
-    <div class="nav-toggle" onclick="toggleMenu()">☰ Menu</div>
-    <ul id="menu">
-      <li><a href="#engagement">Engagement</a></li>
-      <li><a href="#priorites">Priorités</a></li>
-      <li><a href="#equipe">Équipe</a></li>
-      <li><a href="#documents">Documents</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+<div class="top-bar">
 
-<!-- HEADER -->
-<header>
-</header>
+  <!-- HEADER -->
+  <header>
+    <img src="images/logo-red.png" class="logo-header" alt="Logo Bien Vivre à Roquettes">
+  </header>
+
+  <!-- MENU -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-toggle" onclick="toggleMenu()">☰ Menu</div>
+      <ul id="menu">
+        <li><a href="#engagement" onclick="toggleMenu()">Engagement</a></li>
+        <li><a href="#priorites" onclick="toggleMenu()">Priorités</a></li>
+        <li><a href="#equipe" onclick="toggleMenu()">Équipe</a></li>
+        <li><a href="#documents" onclick="toggleMenu()">Documents</a></li>
+        <li><a href="#videos" onclick="toggleMenu()">Vidéos</a></li>
+      </ul>
+    </div>
+  </nav>
+
+</div>
 
 <main>
 
@@ -232,49 +288,59 @@ function toggleMenu() {
   <h2>Documents</h2>
   <div class="documents-grid">
     <a href="documents/programme.pdf" class="document-card" target="_blank">
-      <img src="images/logo.png" alt="Programme municipal">
+      <embed src="documents/programme.pdf" type="application/pdf">
       <span>Programme municipal</span>
     </a>
+
     <a href="documents/lettre-habitants.pdf" class="document-card" target="_blank">
-      <img src="images/lettre-miniature.jpg" alt="Lettre aux habitants">
+      <embed src="documents/lettre-habitants.pdf" type="application/pdf">
       <span>Lettre aux habitants</span>
     </a>
   </div>
 </section>
 
+<section id="videos">
+  <h2>Vidéos</h2>
+  <div class="videos-grid">
+    <div class="video-card">
+      <video controls>
+        <source src="videos/presentation.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la vidéo.
+      </video>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID"
+        frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
 </main>
 
-<!-- FOOTER COMPLET -->
 <footer>
   © Bien Vivre à Roquettes – Élections municipales 2026
   <br><br>
 
-  <!-- Email -->
-  <a href="mailto:contact@bienvivrearoquettes.fr" aria-label="Envoyer un email">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="#2c4a6e">
+  <a href="mailto:contact@bienvivrearoquettes.fr">
+    <svg width="28" height="28" viewBox="0 0 24 24">
       <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
     </svg>
   </a>
 
-  <!-- Facebook -->
   <a href="https://www.facebook.com/BienVivreARoquettes" target="_blank">
-    <!-- Facebook SVG -->
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="#2c4a6e">
+    <svg width="28" height="28" viewBox="0 0 24 24">
       <path d="M22.675 0h-21.35C.595 0 0 .593 0 1.326v21.348C0 23.407.595 24 1.325 24h11.495v-9.294H9.691v-3.622h3.129V8.414c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.31h3.587l-.467 3.622h-3.12V24h6.116C23.405 24 24 23.407 24 22.674V1.326C24 .593 23.405 0 22.675 0z"/>
     </svg>
   </a>
 
-  <!-- Instagram -->
-  <a href="https://www.instagram.com/BienVivreARoquettes" target="_blank" aria-label="Instagram">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="#2c4a6e" xmlns="http://www.w3.org/2000/svg">
-      <path d="M7.75 2h8.5C19.097 2 21 3.903 21 6.25v11.5C21 20.097 19.097 22 16.25 22h-8.5C4.903 22 3 20.097 3 17.75V6.25C3 3.903 4.903 2 7.75 2zm0 1.5C5.678 3.5 4 5.178 4 7.25v9.5C4 18.822 5.678 20.5 7.75 20.5h8.5c2.072 0 3.75-1.678 3.75-3.75v-9.5c0-2.072-1.678-3.75-3.75-3.75h-8.5z"/>
-      <path d="M12 7.25a4.75 4.75 0 1 1 0 9.5 4.75 4.75 0 0 1 0-9.5zm0 1.5a3.25 3.25 0 1 0 0 6.5 3.25 3.25 0 0 0 0-6.5z"/>
+  <a href="https://www.instagram.com/BienVivreARoquettes" target="_blank">
+    <svg width="28" height="28" viewBox="0 0 24 24">
+      <path d="M7.75 2h8.5C19.097 2 21 3.903 21 6.25v11.5C21 20.097 19.097 22 16.25 22h-8.5C4.903 22 3 20.097 3 17.75V6.25C3 3.903 4.903 2 7.75 2z"/>
+      <path d="M12 7.25a4.75 4.75 0 1 1 0 9.5 4.75 4.75 0 0 1 0-9.5z"/>
       <circle cx="17.25" cy="6.75" r="0.75"/>
     </svg>
   </a>
-
 </footer>
-
 
 </body>
 </html>
