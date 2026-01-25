@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Candidature",
+    "file": "tract01.pdf",
+    "thumbnail": "tract01.png"
+  },
+  {
+    "title": "Coeur de Village",
+    "file": "tract02.pdf",
+    "thumbnail": "tract02.png"
+  },
+    {
+    "title": "Tranquilité Publique",
+    "file": "tract03.pdf",
+    "thumbnail": "tract03.png"
+  },
+    {
+    "title": "Éducation",
+    "file": "tract04.pdf",
+    "thumbnail": "tract04.png"
+  }
+]

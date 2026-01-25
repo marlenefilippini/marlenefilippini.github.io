@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Voeux 2026",
+    "type": "local",
+    "file": "voeux.mp4"
+  },
+    {
+    "title": "Éducation",
+    "type": "local",
+    "file": "education.mp4"
+  },
+    {
+    "title": "Le Coeur de Village",
+    "type": "local",
+    "file": "coeurvillage.mp4"
+  },
+    {
+    "title": "Rencontre avec les commerçants",
+    "type": "local",
+    "file": "commercants.mp4"
+  },
+    {
+    "title": "Soutien au Bénévolat",
+    "type": "local",
+    "file": "benevolat.mp4"
+  },
+    {
+    "title": "Conseil municipale des jeunes",
+    "type": "local",
+    "file": "cmj.mp4"
+  },
+    {
+    "title": "Tractage",
+    "type": "local",
+    "file": "tractage.mp4"
+  },
+    {
+    "title": "Tranquilité Publique",
+    "type": "local",
+    "file": "tranquilite.mp4"
+  }
+]

@@ -1,346 +1,481 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<title>Bien Vivre à Roquettes – Municipales 2026</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Bien Vivre à Roquettes – Municipales 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet">
 
-<style>
-/* ===== GLOBAL ===== */
-body {
-  font-family: 'Jost', sans-serif;
-  margin: 0;
-  color: #222;
-  line-height: 1.6;
-  background-image: url('images/background.png');
-}
+  <style>
+    /* ===== GLOBAL ===== */
+    body {
+      font-family: 'Jost', sans-serif;
+      margin: 0;
+      color: #222;
+      line-height: 1.6;
+      background-image: url('images/background.png');
+    }
 
-a { color: #2c4a6e; text-decoration: none; }
+    a {
+      color: #2c4a6e;
+      text-decoration: none;
+    }
 
-/* ===== TOP BAR (HEADER + MENU) STICKY ===== */
-.top-bar {
-  /* background-image: url('images/menu-background.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; */
-  background-color: white;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  transition: all 0.3s ease;
-}
+    /* ===== TOP BAR (HEADER + MENU) STICKY ===== */
+    .top-bar {
+      background-color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
 
-.top-bar.shrink + .top-bar-spacer {
-  height: 120px;
-}
+    .top-bar.shrink+.top-bar-spacer {
+      height: 120px;
+    }
 
-/* ===== HEADER ===== */
-header {
-  text-align: center;
-  position: relative;
-  height: 140px;          /* hauteur initiale */
-  overflow: hidden;        /* empêche le logo de dépasser */
-}
+    /* ===== HEADER ===== */
+    header {
+      text-align: center;
+      position: relative;
+      height: 120px;
+      /* hauteur initiale */
+      overflow: hidden;
+      /* empêche le logo de dépasser */
+    }
 
-/* Logo responsive */
-header .logo-header {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-  transition: height 0.3s ease;
-}
+    /* Logo responsive */
+    header .logo-header {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      transition: height 0.3s ease;
+    }
 
-/* ===== MENU ===== */
-nav {
-  position: relative;
-  /* border-top: 4px solid #e64730;
-  border-bottom: 4px solid #e64730; */
-  background-image: url('images/background.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; 
-  z-index: 1001;                /* au-dessus du header si nécessaire */
-}
+    /* ===== MENU ===== */
+    nav {
+      position: relative;
+      background-image: url('images/background.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      z-index: 1001;
+      /* au-dessus du header si nécessaire */
+    }
 
-nav .nav-container {
-  position: relative;  /* pour que les liens soient au-dessus de l'overlay */
-  z-index: 2;
-}
+    nav .nav-container {
+      position: relative;
+      /* pour que les liens soient au-dessus de l'overlay */
+      z-index: 2;
+    }
 
-.nav-container {
-  max-width: 1000px;
-  margin: auto;
-  padding: 10px;
-}
+    .nav-container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 10px;
+    }
 
-.nav-toggle {
-  display: none;
-  font-size: 1.4em;
-  color: white;
-  cursor: pointer;
-  text-align: right;
-}
+    .nav-toggle {
+      display: none;
+      font-size: 1.4em;
+      color: white;
+      cursor: pointer;
+      text-align: right;
+    }
 
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-nav li {
-  margin: 5px 15px;
-}
+    nav li {
+      margin: 5px 15px;
+    }
 
-nav a {
-  color: white;
-  font-weight: bold;
-}
+    nav a {
+      color: white;
+      font-weight: bold;
+    }
 
-/* ===== MOBILE MENU ===== */
-@media (max-width: 768px) {
-  .nav-toggle {
-    display: block;
-  }
+    /* ===== MOBILE MENU ===== */
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+      }
 
-  nav ul {
-    display: none;
-    flex-direction: column;
-    text-align: center;
-    margin-top: 10px;
-  }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 10px;
+      }
 
-  nav ul.show {
-    display: flex;
-  }
+      nav ul.show {
+        display: flex;
+      }
 
-  nav li {
-    margin: 10px 0;
-  }
-}
+      nav li {
+        margin: 10px 0;
+      }
+    }
 
-/* ===== MAIN ===== */
-main {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 30px 20px;
-  background: none;
-  border-radius: 8px;
-}
-
-
-/* ===== SECTIONS ===== */
-section {
-  margin-bottom: 50px;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-section {
-  background: white;
-  margin-bottom: 50px;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
+    /* ===== MAIN ===== */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px 20px;
+      background: none;
+      border-radius: 8px;
+    }
 
 
-h2 {
-  border-bottom: 2px solid #2c4a6e;
-  padding-bottom: 5px;
-}
+    /* ===== SECTIONS ===== */
+    section {
+      margin-bottom: 50px;
+      padding: 20px;
+      border-radius: 8px;
+    }
 
-ul { padding-left: 20px; }
+    section {
+      background: white;
+      margin-bottom: 50px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
 
-.img-full {
-  max-width: 100%;
-  border-radius: 5px;
-  margin-top: 15px;
-}
 
-/* ===== DOCUMENTS (PDF MINIATURES) ===== */
-.documents-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-}
+    h2 {
+      border-bottom: 2px solid #2c4a6e;
+      padding-bottom: 5px;
+    }
 
-.document-card {
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 10px;
-  text-align: center;
-  background: white;
-}
+    ul {
+      padding-left: 20px;
+    }
 
-.document-card embed {
-  width: 100%;
-  height: 220px;
-  border: 1px solid #ddd;
-}
+    .img-full {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-top: 15px;
+    }
 
-.document-card span {
-  display: block;
-  margin-top: 8px;
-  font-weight: bold;
-}
+    /* Curseur sur image équipe */
+    #equipe-img {
+      cursor: pointer;
+      /* main au survol */
+      transition: transform 0.2s ease;
+    }
 
-/* ===== VIDEOS ===== */
-.videos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-}
+    #equipe-img:hover {
+      transform: scale(1.03);
+      /* léger zoom pour indiquer que c'est cliquable */
+    }
 
-.video-card video,
-.video-card iframe {
-  width: 100%;
-  border-radius: 6px;
-}
+    /* ===== DOCUMENTS ===== */
+    .documents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
 
-/* ===== FOOTER ===== */
-footer {
-  text-align: center;
-  padding: 40px 20px;
-  background-image: url('images/menu-background.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  color: white;
-  font-size: 0.9em;
-}
+    .document-card {
+      background: white;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ddd;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-footer svg {
-  margin: 0 8px;
-  vertical-align: middle;
-  fill: white; /* icônes visibles sur background */
-}
-</style>
+    .document-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    }
 
-<script>
-function toggleMenu() {
-  document.getElementById("menu").classList.toggle("show");
-}
-</script>
+    .document-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .document-card span {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    /* ===== VIDEOS ===== */
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .video-card {
+      background: white;
+      border-radius: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    .video-card iframe,
+    .video-card video {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background-image: url('images/menu-background.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      color: white;
+      font-size: 0.9em;
+    }
+
+    footer svg {
+      margin: 0 8px;
+      vertical-align: middle;
+      fill: white;
+      /* icônes visibles sur background */
+    }
+
+    /* ===== LIGHTBOX EQUIPE ===== */
+    #lightbox-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+    }
+
+    #lightbox-overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    #lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 3em;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .video-card span {
+      display: block;
+      text-align: center;
+      /* centre horizontalement le texte */
+      margin-top: 8px;
+      font-weight: bold;
+    }
+  </style>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show");
+    }
+
+    // DOCUMENTS
+    fetch('documents/documents.json')
+      .then(res => res.json())
+      .then(documents => {
+        const grid = document.getElementById('documents-grid');
+
+        documents.forEach(doc => {
+          const link = document.createElement('a');
+          link.href = `documents/${doc.file}`;
+          link.target = "_blank";
+          link.className = "document-card";
+
+          link.innerHTML = `
+        <img src="documents/${doc.thumbnail}" alt="${doc.title}">
+        <span>${doc.title}</span>
+      `;
+
+          grid.appendChild(link);
+        });
+      });
+
+    // VIDEOS
+    fetch('videos/videos.json')
+      .then(res => res.json())
+      .then(videos => {
+        const grid = document.getElementById('videos-grid');
+
+        videos.forEach(video => {
+          const card = document.createElement('div');
+          card.className = "video-card";
+
+          if (video.type === "local") {
+            card.innerHTML = `
+          <video controls>
+            <source src="videos/${video.file}" type="video/mp4">
+          </video>
+          <span>${video.title}</span>
+        `;
+          }
+
+          if (video.type === "youtube") {
+            card.innerHTML = `
+          <iframe src="https://www.youtube.com/embed/${video.id}"
+            frameborder="0" allowfullscreen></iframe>
+          <p><strong>${video.title}</strong></p>
+        `;
+          }
+
+          grid.appendChild(card);
+        });
+      });
+
+  </script>
 
 </head>
 
 <body>
+  <div class="top-bar">
 
-<div class="top-bar">
+    <!-- HEADER -->
+    <header>
+      <img src="images/logo-red.png" class="logo-header" alt="Logo Bien Vivre à Roquettes">
+    </header>
 
-  <!-- HEADER -->
-  <header>
-    <img src="images/logo-red.png" class="logo-header" alt="Logo Bien Vivre à Roquettes">
-  </header>
+    <!-- MENU -->
+    <nav>
+      <div class="nav-container">
+        <div class="nav-toggle" onclick="toggleMenu()">☰ Menu</div>
+        <ul id="menu">
+          <li><a href="#engagement" onclick="toggleMenu()">Engagement</a></li>
+          <li><a href="#priorites" onclick="toggleMenu()">Priorités</a></li>
+          <li><a href="#equipe" onclick="toggleMenu()">Équipe</a></li>
+          <li><a href="#documents" onclick="toggleMenu()">Tracts</a></li>
+          <li><a href="#videos" onclick="toggleMenu()">Vidéos</a></li>
+        </ul>
+      </div>
+    </nav>
 
-  <!-- MENU -->
-  <nav>
-    <div class="nav-container">
-      <div class="nav-toggle" onclick="toggleMenu()">☰ Menu</div>
-      <ul id="menu">
-        <li><a href="#engagement" onclick="toggleMenu()">Engagement</a></li>
-        <li><a href="#priorites" onclick="toggleMenu()">Priorités</a></li>
-        <li><a href="#equipe" onclick="toggleMenu()">Équipe</a></li>
-        <li><a href="#documents" onclick="toggleMenu()">Documents</a></li>
-        <li><a href="#videos" onclick="toggleMenu()">Vidéos</a></li>
+  </div>
+
+  <main>
+
+    <section id="engagement">
+      <h2>Notre engagement</h2>
+      <p>
+        La liste « Bien Vivre à Roquettes » porte un projet municipal fondé sur
+        l’écoute, la proximité et l’intérêt général.
+      </p>
+      <img src="images/cover.png" class="img-full" alt="Roquettes">
+    </section>
+
+    <section id="priorites">
+      <h2>Nos priorités</h2>
+      <ul>
+        <li>Qualité de vie et tranquillité</li>
+        <li>Solidarité et lien social</li>
+        <li>Éducation et jeunesse</li>
+        <li>Démocratie locale et participation citoyenne</li>
       </ul>
-    </div>
-  </nav>
+    </section>
 
-</div>
+    <section id="equipe">
+      <h2>L’équipe</h2>
+      <p>
+        Une équipe de Roquettoises et Roquettois engagés,
+        présents sur le terrain et à l’écoute des habitants.
+      </p>
+      <img src="images/equipe.jpg" class="img-full" alt="L'équipe" id="equipe-img">
+    </section>
 
-<main>
+    <section id="documents">
+      <h2>Tracts</h2>
+      <div class="documents-grid" id="documents-grid"></div>
+    </section>
 
-<section id="engagement">
-  <h2>Notre engagement</h2>
-  <p>
-    La liste « Bien Vivre à Roquettes » porte un projet municipal fondé sur
-    l’écoute, la proximité et l’intérêt général.
-  </p>
-  <img src="images/village.png" class="img-full" alt="Roquettes">
-</section>
 
-<section id="priorites">
-  <h2>Nos priorités</h2>
-  <ul>
-    <li>Qualité de vie et tranquillité</li>
-    <li>Solidarité et lien social</li>
-    <li>Éducation et jeunesse</li>
-    <li>Démocratie locale et participation citoyenne</li>
-  </ul>
-</section>
+    <section id="videos">
+      <h2>Vidéos</h2>
+      <div class="videos-grid" id="videos-grid"></div>
+    </section>
 
-<section id="equipe">
-  <h2>L’équipe</h2>
-  <p>
-    Une équipe de Roquettoises et Roquettois engagés,
-    présents sur le terrain et à l’écoute des habitants.
-  </p>
-  <img src="images/equipe.png" class="img-full" alt="L'équipe">
-</section>
+  </main>
 
-<section id="documents">
-  <h2>Documents</h2>
-  <div class="documents-grid">
-    <a href="documents/programme.pdf" class="document-card" target="_blank">
-      <embed src="documents/programme.pdf" type="application/pdf">
-      <span>Programme municipal</span>
+  <footer>
+    © Bien Vivre à Roquettes – Élections municipales 2026
+    <br><br>
+
+    <a href="mailto:contact@bienvivrearoquettes.fr">
+      <svg width="28" height="28" viewBox="0 0 24 24">
+        <path
+          d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+      </svg>
     </a>
 
-    <a href="documents/lettre-habitants.pdf" class="document-card" target="_blank">
-      <embed src="documents/lettre-habitants.pdf" type="application/pdf">
-      <span>Lettre aux habitants</span>
+    <a href="https://www.facebook.com/BienVivreARoquettes" target="_blank">
+      <svg width="28" height="28" viewBox="0 0 24 24">
+        <path
+          d="M22.675 0h-21.35C.595 0 0 .593 0 1.326v21.348C0 23.407.595 24 1.325 24h11.495v-9.294H9.691v-3.622h3.129V8.414c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.31h3.587l-.467 3.622h-3.12V24h6.116C23.405 24 24 23.407 24 22.674V1.326C24 .593 23.405 0 22.675 0z" />
+      </svg>
     </a>
+
+    <a href="https://www.instagram.com/BienVivreARoquettes" target="_blank">
+      <svg width="28" height="28" viewBox="0 0 24 24">
+        <path
+          d="M7.75 2h8.5C19.097 2 21 3.903 21 6.25v11.5C21 20.097 19.097 22 16.25 22h-8.5C4.903 22 3 20.097 3 17.75V6.25C3 3.903 4.903 2 7.75 2z" />
+        <path d="M12 7.25a4.75 4.75 0 1 1 0 9.5 4.75 4.75 0 0 1 0-9.5z" />
+        <circle cx="17.25" cy="6.75" r="0.75" />
+      </svg>
+    </a>
+  </footer>
+
+  <!-- Lightbox overlay pour image équipe -->
+  <div id="lightbox-overlay" style="display:none;">
+    <span id="lightbox-close">&times;</span>
+    <img id="lightbox-image" src="" alt="Agrandir l'équipe">
   </div>
-</section>
 
-<section id="videos">
-  <h2>Vidéos</h2>
-  <div class="videos-grid">
-    <div class="video-card">
-      <video controls>
-        <source src="videos/presentation.mp4" type="video/mp4">
-        Votre navigateur ne supporte pas la vidéo.
-      </video>
-    </div>
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/VIDEO_ID"
-        frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-</section>
+  <script>
+    const equipeImg = document.getElementById('equipe-img');
+    const lightboxOverlay = document.getElementById('lightbox-overlay');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxClose = document.getElementById('lightbox-close');
 
-</main>
+    equipeImg.addEventListener('click', () => {
+      lightboxImage.src = equipeImg.src;
+      lightboxOverlay.style.display = 'flex';
+    });
 
-<footer>
-  © Bien Vivre à Roquettes – Élections municipales 2026
-  <br><br>
+    lightboxClose.addEventListener('click', () => {
+      lightboxOverlay.style.display = 'none';
+      lightboxImage.src = '';
+    });
 
-  <a href="mailto:contact@bienvivrearoquettes.fr">
-    <svg width="28" height="28" viewBox="0 0 24 24">
-      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-    </svg>
-  </a>
-
-  <a href="https://www.facebook.com/BienVivreARoquettes" target="_blank">
-    <svg width="28" height="28" viewBox="0 0 24 24">
-      <path d="M22.675 0h-21.35C.595 0 0 .593 0 1.326v21.348C0 23.407.595 24 1.325 24h11.495v-9.294H9.691v-3.622h3.129V8.414c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.31h3.587l-.467 3.622h-3.12V24h6.116C23.405 24 24 23.407 24 22.674V1.326C24 .593 23.405 0 22.675 0z"/>
-    </svg>
-  </a>
-
-  <a href="https://www.instagram.com/BienVivreARoquettes" target="_blank">
-    <svg width="28" height="28" viewBox="0 0 24 24">
-      <path d="M7.75 2h8.5C19.097 2 21 3.903 21 6.25v11.5C21 20.097 19.097 22 16.25 22h-8.5C4.903 22 3 20.097 3 17.75V6.25C3 3.903 4.903 2 7.75 2z"/>
-      <path d="M12 7.25a4.75 4.75 0 1 1 0 9.5 4.75 4.75 0 0 1 0-9.5z"/>
-      <circle cx="17.25" cy="6.75" r="0.75"/>
-    </svg>
-  </a>
-</footer>
-
+    lightboxOverlay.addEventListener('click', (e) => {
+      if (e.target === lightboxOverlay) {
+        lightboxOverlay.style.display = 'none';
+        lightboxImage.src = '';
+      }
+    });
+  </script>
 </body>
+
 </html>
