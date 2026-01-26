@@ -1,0 +1,285 @@
+/* ===== GLOBAL ===== */
+body {
+    font-family: 'Jost', sans-serif;
+    margin: 0;
+    color: #222;
+    line-height: 1.6;
+    background-image: url('images/background.png');
+}
+
+a {
+    color: #2c4a6e;
+    text-decoration: none;
+}
+
+/* ===== TOP BAR (HEADER + MENU) STICKY ===== */
+.top-bar {
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.top-bar.shrink+.top-bar-spacer {
+    height: 120px;
+}
+
+/* ===== HEADER ===== */
+header {
+    text-align: center;
+    position: relative;
+    height: 120px;
+    /* hauteur initiale */
+    overflow: hidden;
+    /* empêche le logo de dépasser */
+}
+
+/* Logo responsive */
+header .logo-header {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: height 0.3s ease;
+}
+
+/* ===== MENU ===== */
+nav {
+    position: relative;
+    background-image: url('images/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: 1001;
+    /* au-dessus du header si nécessaire */
+}
+
+nav .nav-container {
+    position: relative;
+    /* pour que les liens soient au-dessus de l'overlay */
+    z-index: 2;
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 10px;
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 1.4em;
+    color: white;
+    cursor: pointer;
+    text-align: right;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 5px 15px;
+}
+
+nav a {
+    color: white;
+    font-weight: bold;
+}
+
+/* ===== MOBILE MENU ===== */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav li {
+        margin: 10px 0;
+    }
+}
+
+/* ===== MAIN ===== */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    background: none;
+    border-radius: 8px;
+}
+
+
+/* ===== SECTIONS ===== */
+section {
+    margin-bottom: 50px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+section {
+    background: white;
+    margin-bottom: 50px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+
+h2 {
+    border-bottom: 2px solid #2c4a6e;
+    padding-bottom: 5px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+.img-full {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+/* Curseur sur image équipe */
+#equipe-img {
+    cursor: pointer;
+    /* main au survol */
+    transition: transform 0.2s ease;
+}
+
+#equipe-img:hover {
+    transform: scale(1.03);
+    /* léger zoom pour indiquer que c'est cliquable */
+}
+
+/* ===== DOCUMENTS ===== */
+.documents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.document-card {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.document-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.document-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.document-card span {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* ===== VIDEOS ===== */
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.video-card {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.video-card iframe,
+.video-card video {
+    width: 100%;
+    border-radius: 6px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background-image: url('images/menu-background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-size: 0.9em;
+}
+
+footer svg {
+    margin: 0 8px;
+    vertical-align: middle;
+    fill: white;
+    /* icônes visibles sur background */
+}
+
+/* ===== LIGHTBOX EQUIPE ===== */
+#lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+#lightbox-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+#lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3em;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+}
+
+.video-card span {
+    display: block;
+    text-align: center;
+    /* centre horizontalement le texte */
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+section {
+  scroll-margin-top: 200px; /* hauteur du header + menu */
+}
