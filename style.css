@@ -281,5 +281,15 @@ footer svg {
 }
 
 section {
-  scroll-margin-top: 200px; /* hauteur du header + menu */
+    scroll-margin-top: 200px;
+    /* hauteur du header + menu */
+}
+
+.signature {
+    margin-top: 30px;
+    text-align: right;
+    font-family: "Allison", "Pacifico", "Brush Script MT", cursive;
+    font-size: 2rem;
+    color: black;
+    opacity: 0.9;
 }
