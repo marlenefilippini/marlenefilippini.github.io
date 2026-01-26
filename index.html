@@ -369,8 +369,7 @@
       <div class="nav-container">
         <div class="nav-toggle" onclick="toggleMenu()">☰ Menu</div>
         <ul id="menu">
-          <li><a href="#engagement" onclick="toggleMenu()">Engagement</a></li>
-          <li><a href="#priorites" onclick="toggleMenu()">Priorités</a></li>
+          <li><a href="#engagement" onclick="toggleMenu()">Engagements</a></li>
           <li><a href="#equipe" onclick="toggleMenu()">Équipe</a></li>
           <li><a href="#videos" onclick="toggleMenu()">Vidéos</a></li>
           <li><a href="#documents" onclick="toggleMenu()">Documents</a></li>
@@ -382,27 +381,12 @@
 
   <main>
 
-    <section id="engagement">
-      <h2>Notre engagement</h2>
-      <p>
-        La liste « Bien Vivre à Roquettes » porte un projet municipal fondé sur
-        l’écoute, la proximité et l’intérêt général.
-      </p>
-      <img src="images/cover.png" class="img-full" alt="Roquettes">
-    </section>
-
-    <section id="priorites">
-      <h2>Nos priorités</h2>
-      <ul>
-        <li>Qualité de vie et tranquillité</li>
-        <li>Solidarité et lien social</li>
-        <li>Éducation et jeunesse</li>
-        <li>Démocratie locale et participation citoyenne</li>
-      </ul>
+    <section id="engagements" class="section-card">
+      <!-- contenu chargé dynamiquement -->
     </section>
 
     <section id="equipe">
-      <h2>L’équipe</h2>
+      <h2>Notre équipe</h2>
       <p>
         Une équipe de Roquettoises et Roquettois engagés,
         présents sur le terrain et à l’écoute des habitants.
@@ -478,6 +462,21 @@
         lightboxImage.src = '';
       }
     });
+
+    fetch('engagements.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Erreur de chargement de la section Engagements');
+        }
+        return response.text();
+      })
+      .then(html => {
+        document.getElementById('engagements').innerHTML = html;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
   </script>
 </body>
 
