@@ -142,8 +142,9 @@ section {
 
 
 h2 {
-    border-bottom: 2px solid #2c4a6e;
+    border-bottom: 2px solid #e85a32;
     padding-bottom: 5px;
+    color: #e85a32;
 }
 
 ul {
@@ -292,4 +293,54 @@ section {
     font-size: 2rem;
     color: black;
     opacity: 0.9;
+}
+
+/* ===== SECTION BLANCHE UNIFIÉE ===== */
+.section-white {
+  background: white;
+  border-radius: 12px;
+  padding: 25px 20px;
+}
+
+/* ===== TABLE ACTUALITÉS ===== */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto; /* sécurité mobile */
+}
+
+.actualites-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 20px;
+}
+
+.actualites-table td {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  vertical-align: top;
+  width: 33%;
+}
+
+/* Listes dans les cellules */
+.actualites-table ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.actualites-table li {
+  margin-bottom: 8px;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .actualites-table tr {
+    display: block;
+  }
+
+  .actualites-table td {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+  }
 }

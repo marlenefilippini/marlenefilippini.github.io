@@ -92,6 +92,7 @@
         <ul id="menu">
           <li><a href="#engagements" onclick="toggleMenu()">Engagements</a></li>
           <li><a href="#equipe" onclick="toggleMenu()">Équipe</a></li>
+          <li><a href="#actualites" onclick="toggleMenu()">Actualités</a></li>
           <li><a href="#videos" onclick="toggleMenu()">Vidéos</a></li>
           <li><a href="#documents" onclick="toggleMenu()">Documents</a></li>
         </ul>
@@ -113,6 +114,10 @@
         présents sur le terrain et à l’écoute des habitants.
       </p>
       <img src="images/equipe.jpg" class="img-full" alt="L'équipe" id="equipe-img">
+    </section>
+
+    <section id="actualites" class="section-card">
+      <!-- contenu chargé dynamiquement -->
     </section>
 
     <section id="videos">
@@ -193,6 +198,20 @@
       })
       .then(html => {
         document.getElementById('engagements').innerHTML = html;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
+      fetch('actualites.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Erreur de chargement de la section Actualités');
+        }
+        return response.text();
+      })
+      .then(html => {
+        document.getElementById('actualites').innerHTML = html;
       })
       .catch(error => {
         console.error(error);
