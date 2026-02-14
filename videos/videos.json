@@ -40,13 +40,28 @@
     "file": "tranquilite.mp4"
   },
   {
-    "title": "Engagé Zizou",
-    "type": "local",
-    "file": "zizou.mp4"
-  },
-  {
     "title": "Commissions citoyennes",
     "type": "local",
     "file": "com-citoyennes.mp4"
+  },
+  {
+    "title": "Ali",
+    "type": "local",
+    "file": "ali.mp4"
+  },
+  {
+    "title": "Christiane",
+    "type": "local",
+    "file": "christiane.mp4"
+  },
+  {
+    "title": "Léa",
+    "type": "local",
+    "file": "lea.mp4"
+  },
+  {
+    "title": "Zizou",
+    "type": "local",
+    "file": "zizou.mp4"
   }
 ]

@@ -23,5 +23,10 @@
         "title": "Éducation",
         "file": "tract04.pdf",
         "thumbnail": "tract04.png"
+    },
+    {
+        "title": "Sport et Culture",
+        "file": "tract05.pdf",
+        "thumbnail": "tract05.png"
     }
 ]
