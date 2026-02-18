@@ -1,5 +1,40 @@
 [
   {
+    "title": "Carole Delga",
+    "type": "local",
+    "file": "carole_delga.mp4"
+  },
+  {
+    "title": "Ali",
+    "type": "local",
+    "file": "ali.mp4"
+  },
+  {
+    "title": "Christiane",
+    "type": "local",
+    "file": "christiane.mp4"
+  },
+  {
+    "title": "Michelle",
+    "type": "local",
+    "file": "michelle.mp4"
+  },
+  {
+    "title": "Léa",
+    "type": "local",
+    "file": "lea.mp4"
+  },
+  {
+    "title": "Olivier",
+    "type": "local",
+    "file": "olivier.mp4"
+  },
+  {
+    "title": "Zizou",
+    "type": "local",
+    "file": "zizou.mp4"
+  },
+  {
     "title": "Voeux 2026",
     "type": "local",
     "file": "voeux.mp4"
@@ -43,25 +78,5 @@
     "title": "Commissions citoyennes",
     "type": "local",
     "file": "com-citoyennes.mp4"
-  },
-  {
-    "title": "Ali",
-    "type": "local",
-    "file": "ali.mp4"
-  },
-  {
-    "title": "Christiane",
-    "type": "local",
-    "file": "christiane.mp4"
-  },
-  {
-    "title": "Léa",
-    "type": "local",
-    "file": "lea.mp4"
-  },
-  {
-    "title": "Zizou",
-    "type": "local",
-    "file": "zizou.mp4"
   }
 ]
