@@ -1,5 +1,10 @@
 [
     {
+        "title": "Déchets Verts",
+        "file": "dechets.pdf",
+        "thumbnail": "dechets.jpg"
+    },
+    {
         "title": "Candidature",
         "file": "tract01.pdf",
         "thumbnail": "tract01.png"
