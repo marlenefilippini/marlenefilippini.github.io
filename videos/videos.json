@@ -25,14 +25,34 @@
     "file": "caro.mp4"
   },
   {
+    "title": "Claude",
+    "type": "local",
+    "file": "claude.mp4"
+  },
+  {
     "title": "Christiane",
     "type": "local",
     "file": "christiane.mp4"
   },
   {
+    "title": "Guillaume",
+    "type": "local",
+    "file": "guillaume.mp4"
+  },
+  {
     "title": "Jean-Louis",
     "type": "local",
     "file": "jl.mp4"
+  },
+    {
+    "title": "Léa",
+    "type": "local",
+    "file": "lea.mp4"
+  },
+  {
+    "title": "Marion",
+    "type": "local",
+    "file": "marion.mp4"
   },
   {
     "title": "Michelle",
@@ -40,14 +60,14 @@
     "file": "michelle.mp4"
   },
   {
-    "title": "Léa",
-    "type": "local",
-    "file": "lea.mp4"
-  },
-  {
     "title": "Olivier",
     "type": "local",
     "file": "olivier.mp4"
+  },
+  {
+    "title": "Valérie",
+    "type": "local",
+    "file": "valerie.mp4"
   },
   {
     "title": "Zizou",

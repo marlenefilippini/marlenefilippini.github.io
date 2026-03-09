@@ -1,5 +1,10 @@
 [
     {
+        "title": "Notre Programme",
+        "file": "full-prog.pdf",
+        "thumbnail": "full-prog.png"
+    },
+    {
         "title": "Déchets Verts",
         "file": "dechets.pdf",
         "thumbnail": "dechets.jpg"
