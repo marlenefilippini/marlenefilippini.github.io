@@ -5,6 +5,11 @@
         "thumbnail": "full-prog.png"
     },
     {
+        "title": "Groupe Scolaire",
+        "file": "ecole.pdf",
+        "thumbnail": "ecole.jpg"
+    },
+    {
         "title": "Roquettes Isolée",
         "file": "isolee01.pdf",
         "thumbnail": "isolee01.jpg"
