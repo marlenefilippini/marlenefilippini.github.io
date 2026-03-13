@@ -5,6 +5,11 @@
         "thumbnail": "full-prog.png"
     },
     {
+        "title": "Changement",
+        "file": "changement.pdf",
+        "thumbnail": "changement.png"
+    },
+    {
         "title": "Groupe Scolaire",
         "file": "ecole.pdf",
         "thumbnail": "ecole.jpg"
